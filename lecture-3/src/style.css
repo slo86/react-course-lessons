@@ -1,0 +1,48 @@
+.header {
+    height: 4rem;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    height: 4rem;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.tab {
+    height: 3rem;
+    padding: 0 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.tab--active {
+    background-color: #666;
+    color: #fff;
+    border-color: #666;
+}
+
+.counter {
+    display: flex;
+    margin: 0.5rem 0;
+}
+
+.counter > * {
+    margin-right: 0.5rem;
+}
+
+.counter__decrease-btn, .counter__increase-btn {
+    cursor: pointer;
+}
+
+.restaurant__menu-item, .restaurant__reviews-item {
+    margin-bottom: 1rem;
+}
