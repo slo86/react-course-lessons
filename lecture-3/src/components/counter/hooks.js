@@ -1,7 +1,7 @@
 import {useState} from "react";
 
-export function useCounter({ min = 0, max = 5, initialState = 0 } = {}) {
-    const [value, setValue] = useState(initialState);
+export function useCounter({min = 0, max = 5} = {}) {
+    const [value, setValue] = useState(min);
 
     function increase() {
         setValue((prevState) => Math.min(max, prevState + 1));
@@ -17,5 +17,3 @@ export function useCounter({ min = 0, max = 5, initialState = 0 } = {}) {
         decrease
     };
 }
-
-export const useDishCounter = () =>  useCounter();
