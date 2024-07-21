@@ -1,12 +1,13 @@
 import ReviewCounter from "../counter/ReviewCounter.jsx";
 import {useForm} from "./hooks.js";
+import styles from './Restaurant.module.css';
 
 export default function RestaurantReviewForm({}) {
     const {form, updateName, updateText, updateRating, clear} = useForm();
     const {name, text, rating} = form;
 
     return (
-        <div className='restaurant-review-form'>
+        <div className={styles['restaurant-review-form']}>
             <div>
                 <div>Name</div>
                 <input value={name} onChange={e => updateName(e.target.value)} type="text"/>

@@ -1,0 +1,15 @@
+.restaurant {
+    margin-bottom: 1rem;
+}
+
+.restaurant__menu-item, .restaurant__reviews-item {
+    margin-bottom: 1rem;
+}
+
+.restaurant__reviews, .restaurant__menu {
+    margin-bottom: 1rem;
+}
+
+.restaurant-review-form {
+    margin-bottom: 1rem;
+}

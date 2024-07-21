@@ -1,0 +1,5 @@
+.page-progress-bar {
+    position: fixed;
+    height: 0.25rem;
+    background-color: red;
+}
