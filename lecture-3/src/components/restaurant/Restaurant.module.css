@@ -2,14 +2,14 @@
     margin-bottom: 1rem;
 }
 
-.restaurant__menu-item, .restaurant__reviews-item {
+.menuItem, .reviewsItem {
     margin-bottom: 1rem;
 }
 
-.restaurant__reviews, .restaurant__menu {
+.reviews, .menu {
     margin-bottom: 1rem;
 }
 
-.restaurant-review-form {
+.restaurantReviewForm {
     margin-bottom: 1rem;
 }

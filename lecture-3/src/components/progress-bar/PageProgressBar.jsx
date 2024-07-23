@@ -21,6 +21,6 @@ export default function PageProgressBar() {
     }, []);
 
     return (
-        <div className={styles['page-progress-bar']} style={{width: `${progress}%`}}></div>
+        <div className={styles.pageProgressBar} style={{width: `${progress}%`}}></div>
     )
 }

@@ -7,18 +7,18 @@ export default function Restaurant({restaurant}) {
         <div className={styles.restaurant}>
             <h2>{restaurant.name}</h2>
             <h3>Menu</h3>
-            <ul className={styles['restaurant__menu']}>
+            <ul className={styles.menu}>
                 {restaurant.menu.map((menuItem) => (
-                    <li className={styles['restaurant__menu-item']} key={menuItem.id}>
+                    <li className={styles.menuItem} key={menuItem.id}>
                         {menuItem.name}
                         <DishCounter/>
                     </li>
                 ))}
             </ul>
             <h3>Reviews</h3>
-            <ul className={styles['restaurant__reviews']}>
+            <ul className={styles.reviews}>
                 {restaurant.reviews.map((previewItem) => (
-                    <li className={styles['restaurant__reviews-item']} key={previewItem.id}>
+                    <li className={styles.reviewsItem} key={previewItem.id}>
                         {previewItem.user} - {previewItem.text} (Rating: {previewItem.rating})
                     </li>
                 ))}

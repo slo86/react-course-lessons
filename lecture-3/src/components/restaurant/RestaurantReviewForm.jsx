@@ -7,7 +7,7 @@ export default function RestaurantReviewForm({}) {
     const {name, text, rating} = form;
 
     return (
-        <div className={styles['restaurant-review-form']}>
+        <div className={styles.restaurantReviewForm}>
             <div>
                 <div>Name</div>
                 <input value={name} onChange={e => updateName(e.target.value)} type="text"/>

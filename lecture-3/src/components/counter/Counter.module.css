@@ -7,6 +7,6 @@
     margin-right: 0.5rem;
 }
 
-.counter__decrease-btn, .counter__increase-btn {
+.decreaseBtn, .increaseBtn {
     cursor: pointer;
 }
