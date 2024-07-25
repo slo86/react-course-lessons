@@ -1,0 +1,15 @@
+.restaurant {
+    margin-bottom: 1rem;
+}
+
+.menuItem, .reviewsItem {
+    margin-bottom: 1rem;
+}
+
+.reviews, .menu {
+    margin-bottom: 1rem;
+}
+
+.restaurantReviewForm {
+    margin-bottom: 1rem;
+}

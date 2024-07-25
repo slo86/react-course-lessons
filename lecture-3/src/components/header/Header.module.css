@@ -1,0 +1,8 @@
+.header {
+    height: 4rem;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}

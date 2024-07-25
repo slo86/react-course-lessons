@@ -1,13 +1,15 @@
 import {useEffect, useState} from "react";
-import {pageScrollPercentage} from "../utils.js";
+import {pageScrollPercentage} from "../../utils.js";
+import { throttle } from 'throttle-debounce';
+import styles from "./ProgressBar.module.css";
 
 export default function PageProgressBar() {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        function handleScrollAndResize() {
+        const handleScrollAndResize = throttle(100,() => {
             setProgress(pageScrollPercentage());
-        }
+        });
 
         window.addEventListener('scroll', handleScrollAndResize);
         window.addEventListener('resize', handleScrollAndResize);
@@ -19,6 +21,6 @@ export default function PageProgressBar() {
     }, []);
 
     return (
-        <div className='page-progress-bar' style={{width: `${progress}%`}}></div>
+        <div className={styles.pageProgressBar} style={{width: `${progress}%`}}></div>
     )
 }

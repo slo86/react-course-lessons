@@ -48,7 +48,7 @@ export const useForm = () => {
     };
 
     const clear = () => {
-        dispatch({ type: 'clear' });
+        dispatch({type: 'clear'});
     };
 
     return {
