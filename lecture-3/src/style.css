@@ -13,3 +13,8 @@ h2 {
 h3 {
     margin-bottom: 0.5rem;
 }
+
+.separator {
+    border: solid #ccc;
+    border-width: 0 0 0 1px;
+}
