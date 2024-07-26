@@ -5,3 +5,13 @@
 .content {
     padding: 0 1rem;
 }
+
+.layoutThemeLight {
+    color: #333;
+    background-color: #fff;
+}
+
+.layoutThemeDark {
+    color: white;
+    background-color: #333;
+}

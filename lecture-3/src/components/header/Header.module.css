@@ -6,3 +6,15 @@
     padding: 1rem;
     margin-bottom: 1rem;
 }
+
+.headerContent {
+    flex: 1;
+}
+
+.headerActions {
+    display: flex;
+}
+
+.headerActions > *:not(:last-child) {
+    margin-right: 1rem;
+}
