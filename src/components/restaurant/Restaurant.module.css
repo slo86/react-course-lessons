@@ -2,12 +2,39 @@
     margin-bottom: 1rem;
 }
 
-.menuItem, .review {
-    margin-bottom: 1rem;
+.restaurantList {
+    display: flex;
 }
 
-.reviews, .menu {
+.restaurantItem {
+    border: 1px solid lightgray;
+    padding: 1rem;
     margin-bottom: 1rem;
+    cursor: pointer;
+    width: 50%;
+}
+
+.menuItem, .review {
+    border: 1px solid lightgray;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.menuItem {
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    background-color: #eaeaea;
+}
+
+.menu, .reviews {
+    padding: 0;
 }
 
 .restaurantReviewForm {

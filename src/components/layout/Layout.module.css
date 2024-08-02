@@ -1,9 +1,13 @@
 .layout {
+    height: 100%;
     background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
 }
 
 .content {
     padding: 0 1rem;
+    flex: 1;
 }
 
 .layoutThemeLight {

@@ -14,10 +14,10 @@ export const Review = ({id}) => {
         <li className={styles.review} key={id}>
             {userId && (
                 <span>
-                    <User id={userId}/> - {" "}
+                    <User id={userId}/> - {text}
                 </span>
             )}
-            {text} (Rating: {rating})
+            (Rating: {rating})
         </li>
     );
 };
