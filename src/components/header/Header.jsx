@@ -1,15 +1,13 @@
 import styles from './Header.module.css';
 import {ToggleThemeButton} from "../buttons/ToggleThemeButton.jsx";
 import {AuthButton} from "../buttons/AuthButton.jsx";
-import {useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 export default function Header() {
-    const navigate = useNavigate();
-
     return (
         <header className={styles.header}>
-            <div className={styles.headerContent} onClick={() => navigate('/')}>
-                Header
+            <div className={styles.headerContent}>
+                <NavLink to={'/'}>Logo</NavLink>
             </div>
             <div className={styles.headerActions}>
                 <ToggleThemeButton/>

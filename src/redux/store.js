@@ -4,7 +4,6 @@ import {restaurantSlice} from "./entities/restaurant/index.js";
 import {dishSlice} from "./entities/dish/index.js";
 import {reviewSlice} from "./entities/review/index.js";
 import {cartSlice} from "./ui/cart/index.js";
-import {Provider} from 'react-redux';
 
 export const store = configureStore({
     reducer: {
@@ -15,9 +14,3 @@ export const store = configureStore({
         [cartSlice.name]: cartSlice.reducer,
     },
 });
-
-export const StoreProvider = ({children}) => {
-    return <Provider store={store}>
-        {children}
-    </Provider>
-};

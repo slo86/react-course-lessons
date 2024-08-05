@@ -7,9 +7,9 @@ export const MenuItem = ({id, onClick}) => {
     const dish = useSelector(state => selectDishById(state, id));
 
     return (
-        <li className={styles.menuItem} onClick={onClick}>
+        <div className={styles.menuItem} onClick={onClick}>
             <div>{dish.name} - {dish.price}$</div>
             <DishCounter id={id}/>
-        </li>
+        </div>
     );
 };

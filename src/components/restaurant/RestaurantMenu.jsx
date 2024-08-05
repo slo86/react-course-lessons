@@ -11,10 +11,10 @@ export const RestaurantMenu = () => {
     const {menu: menuIds} = useSelector((state) => selectRestaurantById(state, restaurantId)) || {};
 
     return (
-        <ul className={styles.menu}>
+        <div className={styles.menu}>
             {menuIds.map(id => (
                 <MenuItem id={id} key={id} onClick={() => navigate(`/dish/${id}`)}/>
             ))}
-        </ul>
+        </div>
     );
 };

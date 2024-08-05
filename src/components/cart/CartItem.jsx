@@ -8,10 +8,10 @@ export const CartItem = ({id, amount}) => {
     const dish = useSelector(state => selectDishById(state, id)) || {};
 
     return (
-        <li className={styles.cartItem}>
+        <div className={styles.cartItem}>
             <div className={styles.cartItemName}>{dish.name}</div>
             <DishCounter id={id}/>
             <div className={styles.cartItemPrice}>{dish.price * amount}$</div>
-        </li>
+        </div>
     );
 };

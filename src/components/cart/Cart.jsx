@@ -10,11 +10,11 @@ export const Cart = () => {
         <div className={styles.cart}>
             <h3>Cart ({items.length} items)</h3>
             {items.length ? (
-                <ul>
+                <div>
                     {items.map(({itemId, amount,}) => (
                         <CartItem id={itemId} amount={amount} key={itemId}/>
                     ))}
-                </ul>
+                </div>
             ) : (
                 "Empty cart"
             )}
