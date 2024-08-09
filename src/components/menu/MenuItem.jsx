@@ -1,14 +1,10 @@
 import styles from "../restaurant/Restaurant.module.css";
 import DishCounter from "../counter/DishCounter.jsx";
-import {useSelector} from "react-redux";
-import {selectDishById} from "../../redux/entities/dish/index.js";
 
-export const MenuItem = ({id, onClick}) => {
-    const dish = useSelector(state => selectDishById(state, id)) || {};
-
+export const MenuItem = ({id, name, price, onClick}) => {
     return (
         <div className={styles.menuItem} onClick={onClick}>
-            <div>{dish.name} - {dish.price}$</div>
+            <div>{name} - {price}$</div>
             <DishCounter id={id}/>
         </div>
     );

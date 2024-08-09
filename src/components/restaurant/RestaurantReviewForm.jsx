@@ -1,28 +1,47 @@
 import ReviewCounter from "../counter/ReviewCounter.jsx";
 import {useForm} from "./hooks.js";
 import styles from './Restaurant.module.css';
+import {useAuth} from "../../context/AuthContext.jsx";
+import {useAddReviewMutation} from "../../redux/services/api.js";
 
-export default function RestaurantReviewForm({}) {
-    const {form, updateName, updateText, updateRating, clear} = useForm();
-    const {name, text, rating} = form;
+export default function RestaurantReviewForm({restaurantId}) {
+    const {form, updateText, updateRating} = useForm();
+    const {authenticatedUser} = useAuth();
+    const [addReview, {isLoading}] = useAddReviewMutation();
+
+    const {text, rating} = form;
+
+    function handleSubmitForm(e) {
+        e.preventDefault();
+
+        if (authenticatedUser) {
+            addReview({
+                restaurantId,
+                review: {
+                    ...form,
+                    userId: authenticatedUser.id
+                },
+            });
+        }
+    }
+
+    if (!authenticatedUser) {
+        return null;
+    }
 
     return (
-        <div className={styles.restaurantReviewForm}>
-            <div>
-                <div>Name</div>
-                <input value={name} onChange={e => updateName(e.target.value)} type="text"/>
-            </div>
+        <form className={styles.restaurantReviewForm} onSubmit={handleSubmitForm}>
             <div>
                 <div>Text</div>
-                <textarea value={text} onChange={e => updateText(e.target.value)}/>
+                <textarea className={styles.restaurantFormText} value={text} onChange={e => updateText(e.target.value)}/>
             </div>
             <div>
                 <div>Rating</div>
                 <ReviewCounter value={rating} min={1} onChange={value => updateRating(value)}/>
             </div>
             <div>
-                <button onClick={clear}>Submit</button>
+                <button className={styles.restaurantSubmitButton} disabled={!text || isLoading} type={"submit"}>Submit</button>
             </div>
-        </div>
+        </form>
     )
 }
