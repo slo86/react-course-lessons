@@ -6,7 +6,7 @@ export const AuthButton = () => {
     return (
         authenticatedUser ? (
             <>
-                <span>{authenticatedUser}</span>
+                <span>{authenticatedUser.name}</span>
                 <button onClick={logOut}>Log out</button>
             </>
 

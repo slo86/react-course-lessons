@@ -1,16 +1,19 @@
 import styles from "./Cart.module.css";
-import {useSelector} from "react-redux";
-import {selectCartItems} from "../../redux/ui/cart/index.js";
-import {selectDishById} from "../../redux/entities/dish/index.js";
 import DishCounter from "../counter/DishCounter.jsx";
+import {useGetDishByIdQuery} from "../../redux/services/api.js";
 
-export const CartItem = ({id, amount}) => {
-    const dish = useSelector(state => selectDishById(state, id)) || {};
+export const CartItem = ({id: dishId, amount}) => {
+    const {isLoading, data} = useGetDishByIdQuery({dishId});
+    const dish = data || {};
+
+    if (isLoading) {
+        return <div>...calculating</div>
+    }
 
     return (
         <div className={styles.cartItem}>
             <div className={styles.cartItemName}>{dish.name}</div>
-            <DishCounter id={id}/>
+            <DishCounter id={dishId}/>
             <div className={styles.cartItemPrice}>{dish.price * amount}$</div>
         </div>
     );

@@ -1,40 +1,41 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from "./Restaurant.module.css";
 import {Review} from "../review/Review.jsx";
 import RestaurantReviewForm from "./RestaurantReviewForm.jsx";
-import {selectRestaurantById} from "../../redux/entities/restaurant/index.js";
 import {useParams} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {useRequest} from "../../hooks/use-request.js";
-import {getReviews} from "../../redux/entities/review/get-reviews.js";
-import {getUsers} from "../../redux/entities/user/get-users.js";
-import {STATUS_PENDING, STATUS_REJECTED} from "../../redux/ui/request/constants.js";
+import {useGetReviewsByRestaurantIdQuery,} from "../../redux/services/api.js";
 
 export const RestaurantReviews = () => {
     const {restaurantId} = useParams();
-    const {reviews: reviewsIds} = useSelector(state => selectRestaurantById(state, restaurantId)) || {};
-    const usersRequestStatus = useRequest(getUsers);
-    const reviewsRequestStatus = useRequest(getReviews, restaurantId);
-    console.log('---', usersRequestStatus, reviewsRequestStatus);
-    if ([usersRequestStatus, reviewsRequestStatus].includes(STATUS_PENDING)) {
+    const {isFetching, isError, data} = useGetReviewsByRestaurantIdQuery({restaurantId});
+
+    if (isFetching) {
         return <div>...loading</div>;
     }
 
 
-    if ([usersRequestStatus, reviewsRequestStatus].includes(STATUS_REJECTED)) {
+    if (isError) {
         return <div>error</div>;
     }
 
-    if (!reviewsIds.length) {
+    if (!data.length) {
         return null;
     }
 
     return (
         <>
             <ul className={styles.reviews}>
-                {reviewsIds.map(id => <Review id={id} key={id}/>)}
+                {data.map(({id, text, rating, userId}) => (
+                    <Review
+                        id={id}
+                        text={text}
+                        userId={userId}
+                        rating={rating}
+                        key={id}
+                    />
+                ))}
             </ul>
-            <RestaurantReviewForm key={restaurantId}/>
+            <RestaurantReviewForm restaurantId={restaurantId} key={restaurantId}/>
         </>
     );
 };

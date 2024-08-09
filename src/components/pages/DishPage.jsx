@@ -1,23 +1,19 @@
 import {useParams} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {selectDishById} from "../../redux/entities/dish/index.js";
 import DishCounter from "../counter/DishCounter.jsx";
-import {useRequest} from "../../hooks/use-request.js";
 import React from "react";
-import {getDish} from "../../redux/entities/dish/get-dish.js";
-import {STATUS_PENDING, STATUS_REJECTED} from "../../redux/ui/request/constants.js";
+import {useGetDishByIdQuery} from "../../redux/services/api.js";
 
 export const DishPage = () => {
     const {dishId} = useParams();
-    const {name, ingredients, price} = useSelector(state => selectDishById(state, dishId)) || {};
+    const {isLoading, isError, data} = useGetDishByIdQuery({dishId});
+    const {name, ingredients, price} = data || {};
 
-    const requestStatus = useRequest(getDish, dishId);
 
-    if (requestStatus === STATUS_PENDING) {
+    if (isLoading) {
         return <div>...loading</div>;
     }
 
-    if (requestStatus === STATUS_REJECTED) {
+    if (isError) {
         return <div>error</div>;
     }
 

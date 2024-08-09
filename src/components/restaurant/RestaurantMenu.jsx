@@ -1,36 +1,36 @@
 import React from "react";
-import {selectRestaurantById} from "../../redux/entities/restaurant/index.js";
-import {useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
 import styles from "./Restaurant.module.css";
 import {MenuItem} from "../menu/MenuItem.jsx";
-import {useRequest} from "../../hooks/use-request.js";
-import {getDishes} from "../../redux/entities/dish/get-dishes.js";
-import {getUsers} from "../../redux/entities/user/get-users.js";
-import {STATUS_PENDING, STATUS_REJECTED} from "../../redux/ui/request/constants.js";
+import {useGetDishesByRestaurantIdQuery} from "../../redux/services/api.js";
 
 export const RestaurantMenu = () => {
     const {restaurantId} = useParams();
     const navigate = useNavigate();
-    const {menu: menuIds} = useSelector((state) => selectRestaurantById(state, restaurantId)) || {};
-    const requestStatus = useRequest(getDishes, restaurantId);
+    const {isFetching, isError, data} = useGetDishesByRestaurantIdQuery({restaurantId});
 
-    if (requestStatus === STATUS_PENDING) {
+    if (isFetching) {
         return <div>...loading</div>;
     }
 
-    if (requestStatus === STATUS_REJECTED) {
+    if (isError) {
         return <div>error</div>;
     }
 
-    if (!menuIds.length) {
+    if (!data.length) {
         return null;
     }
 
     return (
         <div className={styles.menu}>
-            {menuIds.map(id => (
-                <MenuItem id={id} key={id} onClick={() => navigate(`/dish/${id}`)}/>
+            {data.map(({ id, name, price }) => (
+                <MenuItem
+                    id={id}
+                    key={id}
+                    name={name}
+                    price={price}
+                    onClick={() => navigate(`/dish/${id}`)}
+                />
             ))}
         </div>
     );
