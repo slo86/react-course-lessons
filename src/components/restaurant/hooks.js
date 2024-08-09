@@ -1,18 +1,13 @@
 import {useReducer} from "react";
 
 const INITIAL_FORM = {
-    name: '',
+    userId: '',
     text: '',
     rating: 1
 };
 
 function reducer(state, {type, payload}) {
     switch (type) {
-        case 'setName':
-            return {
-                ...state,
-                name: payload
-            };
         case 'setText':
             return {
                 ...state,
@@ -35,10 +30,6 @@ function reducer(state, {type, payload}) {
 export const useForm = () => {
     const [form, dispatch] = useReducer(reducer, INITIAL_FORM);
 
-    const updateName = (name) => {
-        dispatch({type: 'setName', payload: name});
-    };
-
     const updateText = (text) => {
         dispatch({type: 'setText', payload: text});
     };
@@ -53,9 +44,8 @@ export const useForm = () => {
 
     return {
         form,
-        updateName,
         updateText,
         updateRating,
-        clear
+        clear,
     };
 }

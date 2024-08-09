@@ -40,3 +40,12 @@
 .restaurantReviewForm {
     margin-bottom: 1rem;
 }
+
+.restaurantSubmitButton:not([disabled]) {
+    cursor: pointer;
+}
+
+.restaurantFormText {
+    width: 35%;
+    height: 3rem;
+}
