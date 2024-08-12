@@ -4,7 +4,6 @@ import styles from "./Layout.module.css";
 import {useTheme} from "../../context/ThemeContext.jsx";
 import classNames from "classnames";
 import PageProgressBar from "../progress-bar/PageProgressBar.jsx";
-import React from "react";
 import {Outlet} from "react-router-dom";
 import {Cart} from "../cart/Cart.jsx";
 

@@ -1,6 +1,5 @@
 import {useParams} from "react-router-dom";
 import DishCounter from "../counter/DishCounter.jsx";
-import React from "react";
 import {useGetDishByIdQuery} from "../../redux/services/api.js";
 
 export const DishPage = () => {

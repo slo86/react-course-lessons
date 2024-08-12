@@ -1,4 +1,3 @@
-import React from "react";
 import {Outlet, useParams} from "react-router-dom";
 import {NavLink} from "react-router-dom";
 import Tab from "../tabs/Tab.jsx";

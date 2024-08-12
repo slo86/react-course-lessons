@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Restaurant.module.css";
 import {Review} from "../review/Review.jsx";
 import RestaurantReviewForm from "./RestaurantReviewForm.jsx";
