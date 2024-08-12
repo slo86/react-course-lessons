@@ -1,9 +1,8 @@
-import React from "react";
 import {RestaurantItem} from "./RestaurantItem.jsx";
 import {useNavigate} from "react-router-dom";
 import {useGetRestaurantsQuery} from "../../redux/services/api.js";
 
-export const RestaurantsList = ({}) => {
+export const RestaurantsList = () => {
     const navigate = useNavigate();
     const { isLoading, isError, data} = useGetRestaurantsQuery(undefined);
 

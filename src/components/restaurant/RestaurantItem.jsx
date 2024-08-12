@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Restaurant.module.css";
 
 export const RestaurantItem = ({id, name, description, onClick}) => {
